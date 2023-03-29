@@ -9,6 +9,7 @@ public class ManagerWorks : MonoBehaviour
     public string CurrentPlayer;
     public string Name;
     public int highScore;
+    public bool GameOver = false;
 
     private void Awake(){
         if (Instance != null){

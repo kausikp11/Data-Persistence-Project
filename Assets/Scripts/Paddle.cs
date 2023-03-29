@@ -16,7 +16,18 @@ public class Paddle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float input = Input.GetAxis("Horizontal");
+        float input=0;
+        bool gameOver = ManagerWorks.Instance.GameOver;
+        #if UNITY_ANDROID
+        if (!gameOver){
+        input = Input.GetAxis("Mouse X");
+        }
+        #endif
+        #if UNITY_STANDALONE_WIN
+        if (!gameOver){
+        input = Input.GetAxis("Horizontal");
+        }
+        #endif
 
         Vector3 pos = transform.position;
         pos.x += input * Speed * Time.deltaTime;

@@ -48,7 +48,7 @@ public class MainManager : MonoBehaviour
     {
         if (!m_Started)
         {
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButton(0))
             {
                 m_Started = true;
                 float randomDirection = Random.Range(-1.0f, 1.0f);
@@ -58,14 +58,6 @@ public class MainManager : MonoBehaviour
                 Ball.transform.SetParent(null);
                 Ball.AddForce(forceDir * 2.0f, ForceMode.VelocityChange);
             }
-        }
-        else if (m_GameOver)
-        {
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-            }
-
         }
     }
 
@@ -82,9 +74,15 @@ public class MainManager : MonoBehaviour
         BestScoreText.text = $"Best Score : {name} : {highScore}";
     }
 
+    public void Restart(){
+        ManagerWorks.Instance.GameOver = false;
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
     public void GameOver()
     {
         m_GameOver = true;
+        ManagerWorks.Instance.GameOver = true;
         if(m_Points>highScore){
             ManagerWorks.Instance.Name = ManagerWorks.Instance.CurrentPlayer;
             ManagerWorks.Instance.highScore = m_Points;

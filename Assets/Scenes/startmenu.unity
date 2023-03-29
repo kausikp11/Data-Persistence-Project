@@ -1209,8 +1209,8 @@ Camera:
   m_GameObject: {fileID: 1064197315}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0.10660769, g: 0, b: 0.9811321, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -1473,6 +1473,7 @@ MonoBehaviour:
   CurrentPlayer: 
   Name: 
   highScore: 0
+  GameOver: 0
 --- !u!1 &1636959189
 GameObject:
   m_ObjectHideFlags: 0
